@@ -9,8 +9,8 @@ function App() {
       <header className="App-header">
         <BrowserRouter>
           <div className='header'>
-          <NavLink to="/" style={styleNavLink}>Home</NavLink>
-          <NavLink to="shop" style={styleNavLink}>Shop</NavLink>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="shop">Shop</NavLink>
           </div>
           <Routes>
             <Route path='/' element={<Homepage />} />
@@ -23,7 +23,3 @@ function App() {
 }
 
 export default App;
-
-function styleNavLink({isActive}) {
-  return {color: isActive ? 'lightblue' : 'gray'};
-};

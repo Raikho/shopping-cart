@@ -85,6 +85,10 @@
   align-items: center;
 }
 
-/* a.active {
+a {
+  color: gray;
+}
+a.active {
+  color: lightblue;
   font-weight: bold;
-} */
+}
