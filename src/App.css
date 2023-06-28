@@ -44,7 +44,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 6fr;
+  grid-template-rows: 1fr 12fr;
 }
 
 .App-header>* {
@@ -66,4 +66,25 @@
 }
 .shop {
   background-color: rgba(123, 63, 202, 0.199);
+
+  display: grid;
+  grid-template-rows: 1fr 5fr;
 }
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.item {
+  width: 200px;
+  height: 200px;
+  background-color: #61dafb46;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* a.active {
+  font-weight: bold;
+} */
