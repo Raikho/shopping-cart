@@ -9,8 +9,12 @@ function App() {
       <header className="App-header">
         <BrowserRouter>
           <div className='header'>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="shop">Shop</NavLink>
+            <div className="store-title">The Clothes Store</div>
+            <div className="nav-container">
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="shop">Shop</NavLink>
+            </div>
+            <div className="cart">Cart</div>
           </div>
           <Routes>
             <Route path='/' element={<Homepage />} />

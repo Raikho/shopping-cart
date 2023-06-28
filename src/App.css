@@ -60,6 +60,9 @@
 
 .header {
   background-color: rgba(160, 238, 144, 0.212);
+  display: flex;
+  flex-direction: center;
+  justify-content: space-around;
 }
 .homepage {
   background-color: rgba(63, 193, 202, 0.199);
@@ -79,6 +82,8 @@
   width: 200px;
   height: 200px;
   background-color: #61dafb46;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px 2px #0003;
 
   display: flex;
   justify-content: center;
@@ -91,4 +96,21 @@ a {
 a.active {
   color: lightblue;
   font-weight: bold;
+}
+.store-title {
+  color: dodgerblue;
+  font-size: 42px;
+  font-weight: bold;
+  text-shadow: 4px 4px 4px #03171da8;
+}
+.nav-container {
+  display: flex;
+  gap: 20px;
+}
+.cart {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: dodgerblue;
+  color: whitesmoke;
 }
