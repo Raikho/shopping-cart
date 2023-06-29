@@ -1,15 +1,18 @@
+import { useOutletContext } from 'react-router-dom';
+
 const ItemList = props => {
+
+    const [items] =  useOutletContext();
+
     return (
         <div className="item-list">
-            <div className="item">Item 1</div>
-            <div className="item">Item 2</div>
-            <div className="item">Item 3</div>
-            <div className="item">Item 4</div>
-            <div className="item">Item 5</div>
-            <div className="item">Item 6</div>
-            <div className="item">Item 7</div>
-            <div className="item">Item 8</div>
-            <div className="item">Item 9</div>
+            {items.map(item => (
+                <div className='item'>
+                    <div className="name">{item.name}</div>
+                    <div className="image">-Image-</div>
+                    <div className="price">{`$${item.price}.00`}</div>
+                </div>
+            ))}
         </div>
     )
 }
