@@ -73,7 +73,29 @@ a.active {color: lightblue; font-weight: bold;}
 
 /* ============================= MAIN ============================== */
 /* ================================================================= */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5fr;
+}
+.shop-layout>* {
+  border: 2px dotted white;
+}
+.item-list {
+  padding: 20px;
 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+}
+.item {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 4px 4px #fff3;
+}
 /* ============================ FOOTER ============================= */
 /* ================================================================= */
 .footer {
