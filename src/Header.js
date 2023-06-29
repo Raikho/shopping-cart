@@ -6,7 +6,7 @@ const Header = props => {
             <div className="store-title">ClothesShop</div>
             <div className="nav-container">
                 <NavLink to='/' >Home</NavLink>
-                <NavLink to='shop' >Shop</NavLink>
+                <NavLink to='shop/all' >Shop</NavLink>
                 <NavLink to='contact' >Contact</NavLink>
             </div>
             <div className="cart-button">Cart</div>

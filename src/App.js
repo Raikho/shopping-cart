@@ -14,10 +14,14 @@ function App() {
       <header className="App-header">
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<MainLayout />} >
-              <Route path='/' element={<ShopLayout />} >
-                <Route path='/' element={<ItemList />} />
+            <Route element={<MainLayout />} >
+              <Route path='/' element={<Homepage />} />
+              <Route path='shop' element={<ShopLayout />} >
+                {/* <Route path='/shop/new' element={<div>./shop index reached</div>} /> */}
+                <Route path=':cat' element={<ItemList />} />
+                <Route path='*' element={<div>DEFAULT PATH after shop</div>} />
               </Route>
+              <Route path='contact' element={<Contact />} />
             </Route>
           </Routes>
 {/* <div className='header'>
