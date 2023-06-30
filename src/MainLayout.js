@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom';
 import Header from './Header.js';
 
 const MainLayout = props => {
-    console.log(props);
     return (
         <div className="main-layout">
             <Header />
