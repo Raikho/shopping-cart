@@ -9,7 +9,7 @@ const ItemList = props => {
             {items.map(item => (
                 <div className='item'>
                     <div className="name">{item.name}</div>
-                    <div className="image">-Image-</div>
+                    <img src={require(`./assets/${item.img}.jpg`)} alt={item.img} />
                     <div className="price">{`$${item.price}.00`}</div>
                 </div>
             ))}
