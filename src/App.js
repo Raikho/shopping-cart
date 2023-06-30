@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import uniqid from 'uniqid';
 import Homepage from './Homepage.js';
@@ -22,9 +22,12 @@ function App() {
     {name: 'Decoration', cat: 'supplies', price: 10, id: uniqid(), img: 'decoration'},
   ]);
 
+  const [total, setTotal] = useState(0);
+
   const handleAddItem = id => {
     let item = items.filter(item => item.id === id)[0];
     console.log('trying to add item:', item);
+    setTotal(total + item.price);
   }
 
   const getItems = cat => {
@@ -37,10 +40,10 @@ function App() {
       <header className="App-header">
         <BrowserRouter>
           <Routes>
-            <Route element={<MainLayout />} >
+            <Route element={<MainLayout total={total}/>} >
               <Route path='/' element={<Homepage />} />
               <Route path='shop' element={<ShopLayout />} >
-                <Route path=':cat' element={<ItemList getItems={getItems} handleAdd={handleAddItem}/>} />
+                <Route path=':cat' element={<ItemList getItems={getItems} handleAddItem={handleAddItem}/>} />
                 <Route path='*' element={<div>DEFAULT PATH after shop</div>} />
               </Route>
               <Route path='contact' element={<Contact />} />

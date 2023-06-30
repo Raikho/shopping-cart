@@ -4,7 +4,7 @@ import Header from './Header.js';
 const MainLayout = props => {
     return (
         <div className="main-layout">
-            <Header />
+            <Header total={props.total}/>
             <Outlet />
             <div className="footer">Footer</div>
         </div>
