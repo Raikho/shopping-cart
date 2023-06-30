@@ -81,6 +81,12 @@ a.active {color: lightblue; font-weight: bold;}
 .shop-layout>* {
   border: 2px dotted white;
 }
+.categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 .item-list {
   padding: 20px;
 
