@@ -22,9 +22,14 @@ function App() {
     {name: 'Decoration', cat: 'supplies', price: 10, id: uniqid(), img: 'decoration'},
   ]);
 
-  const handleAdd = id => {
+  const handleAddItem = id => {
     let item = items.filter(item => item.id === id)[0];
     console.log('trying to add item:', item);
+  }
+
+  const getItems = cat => {
+    if (cat === 'all') return items;
+    return items.filter(item => item.cat === cat);
   }
 
   return (
@@ -35,7 +40,7 @@ function App() {
             <Route element={<MainLayout />} >
               <Route path='/' element={<Homepage />} />
               <Route path='shop' element={<ShopLayout />} >
-                <Route path=':cat' element={<ItemList items={items} handleAdd={handleAdd}/>} />
+                <Route path=':cat' element={<ItemList getItems={getItems} handleAdd={handleAddItem}/>} />
                 <Route path='*' element={<div>DEFAULT PATH after shop</div>} />
               </Route>
               <Route path='contact' element={<Contact />} />
