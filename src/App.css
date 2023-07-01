@@ -71,7 +71,7 @@
 a {color: gray;}
 a.active {color: lightblue; font-weight: bold;}
 
-/* ============================= MAIN ============================== */
+/* ========================= MAIN LAYOUTS ========================== */
 /* ================================================================= */
 .shop-layout {
   display: grid;
@@ -79,7 +79,6 @@ a.active {color: lightblue; font-weight: bold;}
   grid-template-rows: 1fr 5fr;
 }
 .shop-layout>* {
-  border: 2px dotted white;
 }
 .categories {
   display: flex;
@@ -87,6 +86,8 @@ a.active {color: lightblue; font-weight: bold;}
   align-items: center;
   gap: 20px;
 }
+/* ============================ ITEMS ============================== */
+/* ================================================================= */
 .item-list {
   padding: 20px;
 

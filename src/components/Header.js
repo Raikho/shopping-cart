@@ -9,7 +9,10 @@ const Header = props => {
                 <NavLink to='shop/all' >Shop</NavLink>
                 <NavLink to='contact' >Contact</NavLink>
             </div>
-            <div className="cart-button">Cart: (${props.total}.00)</div>
+            <NavLink to='cart' className="cart-button">
+                Cart: (${props.total}.00)
+            </NavLink>
+            {/* <div className="cart-button">Cart: (${props.total}.00)</div> */}
         </div>
     )
 }

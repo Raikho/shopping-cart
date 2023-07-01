@@ -1,14 +1,15 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import uniqid from 'uniqid';
-import Homepage from './Homepage.js';
-import Shop from './Shop.js';
-import Contact from './Contact.js';
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import MainLayout from './MainLayout.js';
-import ShopLayout from './ShopLayout.js';
-import ItemList from './ItemList.js';
+import MainLayout from './components/MainLayout.js';
+import Homepage from './components/Homepage.js';
+import Contact from './components/Contact.js';
+
+import ShopLayout from './components/ShopLayout.js';
+import ItemList from './components/ItemList.js';
+import CartLayout from './components/CartLayout.js';
 
 const baseItems = [
   {name: 'Betta', cat: 'fresh', price: 9, id: uniqid(), img: 'betta', quantity: 0},
@@ -56,6 +57,7 @@ function App() {
                 <Route path=':cat' element={<ItemList getItems={getItems} handleAddItem={handleAddItem}/>} />
                 <Route path='*' element={<div>DEFAULT PATH after shop</div>} />
               </Route>
+              <Route path='cart' element={<CartLayout items={items}/>} />
               <Route path='contact' element={<Contact />} />
             </Route>
           </Routes>
