@@ -26,11 +26,11 @@ function App() {
   const [items, setItems] = useState(baseItems);
   const [total, setTotal] = useState(0);
 
-  const handleAddItem = id => {
+  const handleChangeQuantity = (id, change) => {
     setItems(prevItems => {
       let newItems = JSON.parse(JSON.stringify(prevItems));
       let item = newItems.filter(item => item.id === id)[0];
-      item.quantity++;
+      item.quantity += change;
       return newItems;
     });
   }
@@ -54,11 +54,11 @@ function App() {
             <Route element={<MainLayout total={total}/>} >
               <Route path='/' element={<Homepage />} />
               <Route path='shop' element={<ShopLayout />} >
-                <Route path=':cat' element={<ItemList getItems={getItems} handleAddItem={handleAddItem}/>} />
+                <Route path=':cat' element={<ItemList getItems={getItems} handleChangeQuantity={handleChangeQuantity}/>} />
                 <Route path='*' element={<div>DEFAULT PATH after shop</div>} />
               </Route>
               <Route path='cart' element={<CartLayout items={items}/>} >
-                <Route index element={<ItemList getItems={() => getItems('cart')} handleAddItem={handleAddItem}/>} />
+                <Route index element={<ItemList getItems={() => getItems('cart')} handleChangeQuantity={handleChangeQuantity}/>} />
               </Route>
               <Route path='contact' element={<ContactPage />} />
             </Route>

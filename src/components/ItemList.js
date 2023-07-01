@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import Item from './Item.js';
 
 const ItemList = props => {
-    const { getItems, handleAddItem } = props;
+    const { getItems, handleChangeQuantity } = props;
 
     const items = getItems(useParams().cat);
 
@@ -10,8 +10,9 @@ const ItemList = props => {
         <div className="item-list">
             {items.map(item => (
                 <Item 
+                    key={item.id}
                     item={item} 
-                    handleAddItem={handleAddItem}
+                    handleChangeQuantity={handleChangeQuantity}
                 />
             ))}
         </div>
