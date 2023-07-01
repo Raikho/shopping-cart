@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import MainLayout from './components/MainLayout.js';
 import Homepage from './components/Homepage.js';
-import Contact from './components/Contact.js';
+import ContactPage from './components/ContactPage.js';
 
 import ShopLayout from './components/ShopLayout.js';
 import ItemList from './components/ItemList.js';
@@ -24,7 +24,6 @@ const baseItems = [
 
 function App() {
   const [items, setItems] = useState(baseItems);
-
   const [total, setTotal] = useState(0);
 
   const handleAddItem = id => {
@@ -43,6 +42,7 @@ function App() {
 
   const getItems = cat => {
     if (cat === 'all') return items;
+    if (cat === 'cart') return items.filter(item => item.quantity > 0);
     return items.filter(item => item.cat === cat);
   }
 
@@ -57,8 +57,10 @@ function App() {
                 <Route path=':cat' element={<ItemList getItems={getItems} handleAddItem={handleAddItem}/>} />
                 <Route path='*' element={<div>DEFAULT PATH after shop</div>} />
               </Route>
-              <Route path='cart' element={<CartLayout items={items}/>} />
-              <Route path='contact' element={<Contact />} />
+              <Route path='cart' element={<CartLayout items={items}/>} >
+                <Route index element={<ItemList getItems={() => getItems('cart')} handleAddItem={handleAddItem}/>} />
+              </Route>
+              <Route path='contact' element={<ContactPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
