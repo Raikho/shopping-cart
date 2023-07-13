@@ -39,6 +39,15 @@
 
 /* ============================ CUSTOM ============================= */
 /* ================================================================= */
+:root {
+  --button-accent: #0891b2;
+  --button-text: white;
+  --header-bg: rgba(144, 238, 144, 0.192);
+
+  --link-inactive: gray;
+  --link-active: lightblue;
+  --footer-bg: rgba(230, 212, 173, 0.247);
+}
 .main-layout {
   width: 100vw;
   height: 100vh;
@@ -51,7 +60,7 @@
 /* ============================ HEADER ============================= */
 /* ================================================================= */
 .header {
-  background-color: rgba(144, 238, 144, 0.192);
+  background-color: var(--header-bg);
   
   display: flex;
   justify-content: space-around;
@@ -68,8 +77,8 @@
   justify-content: center;
   gap: 20px;
 }
-a {color: gray;}
-a.active {color: lightblue; font-weight: bold;}
+a {color: var(--link-inactive);}
+a.active {color: var(--link-active); font-weight: bold;}
 
 /* ========================= MAIN LAYOUTS ========================== */
 /* ================================================================= */
@@ -140,17 +149,17 @@ button {
   font-size: 16px;
   border: none;
   padding: 5px 10px;
+  color: var(--button-text);
+  background-color: var(--button-accent);
 }
 button.add {
-  color: white;
   font-weight: bold;
-  background-color: #0891b2;
 }
 button.adjust {
   padding: 3px 9px;
   font-size: 20px;
-  color: white;
-  background-color: #0891b2;
+  color: var(--button-text);
+  background-color: var(--button-accent);
 }
 button:hover {filter: brightness(1.1);}
 button:active {filter: brightness(0.9);}
@@ -168,88 +177,16 @@ button:active {filter: brightness(0.9);}
   gap: 20px;
   align-items: center;
 }
-
 button.checkout, button.reset {
   font-size: 24px;
   font-weight: bold;
   padding: 15px 30px;
-  color: white;
-  background-color: #0891b2;
 }
 /* ============================ FOOTER ============================= */
 /* ================================================================= */
 .footer {
-  background-color: rgba(230, 212, 173, 0.247);
-}
-
-
-
-
-/* 
-.App-header {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 12fr;
-}
-
-.App-header>* {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.header {
-  background-color: rgba(160, 238, 144, 0.212);
-  display: flex;
-  flex-direction: center;
-  justify-content: space-around;
-}
-.homepage {
-  background-color: rgba(63, 193, 202, 0.199);
-}
-.shop {
-  background-color: rgba(123, 63, 202, 0.199);
-
-  display: grid;
-  grid-template-rows: 1fr 5fr;
-}
-.item-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.item {
-  width: 200px;
-  height: 200px;
-  background-color: #61dafb46;
-  border-radius: 5px;
-  box-shadow: 4px 4px 4px 2px #0003;
-
+  background-color: var(--footer-bg);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.store-title {
-  color: dodgerblue;
-  font-size: 42px;
-  font-weight: bold;
-  text-shadow: 4px 4px 4px #03171da8;
-}
-.nav-container {
-  display: flex;
-  gap: 20px;
-}
-.cart {
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  background-color: dodgerblue;
-  color: whitesmoke;
-} */
