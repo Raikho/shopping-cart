@@ -42,11 +42,15 @@
 :root {
   --button-accent: #0891b2;
   --button-text: white;
-  --header-bg: rgba(144, 238, 144, 0.192);
+  --header-bg: #0008;
+  --caption-bg: #0007;
+
+  --visit-fg: black;
+  --visit-bg: white;
 
   --link-inactive: gray;
   --link-active: lightblue;
-  --footer-bg: rgba(230, 212, 173, 0.247);
+  --footer-bg: #0008;
 }
 .main-layout {
   width: 100vw;
@@ -54,7 +58,34 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 8fr 1fr;
+  grid-template-rows: 2fr 20fr 1fr;
+}
+.main-layout {
+  background-image: url('./assets/aquarium.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.homepage {display: flex; justify-content: center; align-items: center;}
+.caption {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+.caption-text {
+  text-shadow: 4px 4px 4px #000a;
+}
+a.enter {
+  padding: 10px 20px;
+  border-radius: 2px;
+  /* border: 1px solid white; */
+  color: var(--visit-fg);
+  background-color: var(--visit-bg);
+}
+a.enter:hover {
+  box-shadow: inset 0 0 2px 2px #0003;
 }
 
 /* ============================ HEADER ============================= */
@@ -77,7 +108,7 @@
   justify-content: center;
   gap: 20px;
 }
-a {color: var(--link-inactive);}
+a {color: var(--link-inactive); text-decoration: none;}
 a.active {color: var(--link-active); font-weight: bold;}
 
 /* ========================= MAIN LAYOUTS ========================== */
