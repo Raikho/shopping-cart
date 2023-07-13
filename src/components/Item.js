@@ -11,12 +11,12 @@ const Item = props => {
             <img src={require(`../assets/${img}.jpg`)} alt={img} />
             <div className="price">{`$${price}.00`}</div>
             {quantity > 0 ?
-                <div>
-                    <button onClick={onSubtract}>-</button>
+                <div className='quantity-container'>
+                    <button className='adjust' onClick={onSubtract}>-</button>
                     {quantity}
-                    <button onClick={onAdd}>+</button>
+                    <button className='adjust' onClick={onAdd}>+</button>
                 </div> :
-                <button onClick={onAdd}>Buy</button>
+                <button className='add' onClick={onAdd}>Add</button>
             }
         </div>
     )

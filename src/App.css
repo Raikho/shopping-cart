@@ -123,6 +123,31 @@ a.active {color: lightblue; font-weight: bold;}
   height: 100%;
   object-fit: cover;
 }
+/* =========================== BUTTONS ============================= */
+.quantity-container {
+  border: 1px dotted white;
+  padding: 5px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+button {
+  user-select: none;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  padding: 5px 10px;
+}
+button.add {
+  color: white;
+  font-weight: bold;
+  background-color: #0891b2;
+}
+button.adjust {
+  font-size: 20px;
+}
+button:hover {filter: brightness(1.1);}
+button:active {filter: brightness(0.9);}
 /* ============================ FOOTER ============================= */
 /* ================================================================= */
 .footer {
