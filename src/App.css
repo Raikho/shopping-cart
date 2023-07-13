@@ -101,11 +101,11 @@ a.active {color: lightblue; font-weight: bold;}
 .item {
   width: 200px;
   height: 200px;
-  box-shadow: 0 0 4px 4px #fff3;
+  /* box-shadow: 0 0 4px 4px #fff3; */
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 15% 1fr 20%;
   grid-template-areas: 
     "name name"
     "img img"
@@ -116,7 +116,10 @@ a.active {color: lightblue; font-weight: bold;}
 
   padding: 10px;
 }
-.item>.name {grid-area: name;}
+.item>.name {
+  grid-area: name;
+  font-weight: bold;
+}
 .item>img {
   grid-area: img;
   width: 100%;
@@ -125,7 +128,7 @@ a.active {color: lightblue; font-weight: bold;}
 }
 /* =========================== BUTTONS ============================= */
 .quantity-container {
-  border: 1px dotted white;
+  /* border: 1px dotted white; */
   padding: 5px;
   display: flex;
   gap: 5px;
@@ -144,10 +147,35 @@ button.add {
   background-color: #0891b2;
 }
 button.adjust {
+  padding: 3px 9px;
   font-size: 20px;
+  color: white;
+  background-color: #0891b2;
 }
 button:hover {filter: brightness(1.1);}
 button:active {filter: brightness(0.9);}
+/* ============================= CART ============================== */
+/* ================================================================= */
+.cart-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.cart-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+button.checkout, button.reset {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px 30px;
+  color: white;
+  background-color: #0891b2;
+}
 /* ============================ FOOTER ============================= */
 /* ================================================================= */
 .footer {

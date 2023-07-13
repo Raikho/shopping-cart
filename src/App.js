@@ -46,6 +46,15 @@ function App() {
     return items.filter(item => item.cat === cat);
   }
 
+  const handleReset = () => {
+    setItems(prevItems => {
+      let newItems = JSON.parse(JSON.stringify(prevItems));
+      newItems.forEach(item => item.quantity = 0);
+
+      return newItems;
+    });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -57,7 +66,7 @@ function App() {
                 <Route path=':cat' element={<ItemList getItems={getItems} handleChangeQuantity={handleChangeQuantity}/>} />
                 <Route path='*' element={<div>DEFAULT PATH after shop</div>} />
               </Route>
-              <Route path='cart' element={<CartLayout items={items}/>} >
+              <Route path='cart' element={<CartLayout items={items} handleReset={handleReset}/>} >
                 <Route index element={<ItemList getItems={() => getItems('cart')} handleChangeQuantity={handleChangeQuantity}/>} />
               </Route>
               <Route path='contact' element={<ContactPage />} />
