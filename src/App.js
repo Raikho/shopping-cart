@@ -66,7 +66,7 @@ function App() {
                 <Route path=':cat' element={<ItemList getItems={getItems} handleChangeQuantity={handleChangeQuantity}/>} />
                 <Route path='*' element={<div>DEFAULT PATH after shop</div>} />
               </Route>
-              <Route path='cart' element={<CartLayout items={items} handleReset={handleReset}/>} >
+              <Route path='cart' element={<CartLayout total={total} handleReset={handleReset}/>} >
                 <Route index element={<ItemList getItems={() => getItems('cart')} handleChangeQuantity={handleChangeQuantity}/>} />
               </Route>
               <Route path='contact' element={<ContactPage />} />
