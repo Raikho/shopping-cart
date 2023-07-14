@@ -128,9 +128,16 @@ a.active {color: var(--link-active); font-weight: bold;}
 .shop-layout {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 1fr 7fr;
 }
-.shop-layout>* {
+.shop-layout>.categories {
+  font-size: 32px;
+  display: flex;
+}
+@media screen and (max-width: 600px) {
+  .shop-layout>.categories {
+    flex-direction: column;
+  }
 }
 .categories {
   display: flex;
