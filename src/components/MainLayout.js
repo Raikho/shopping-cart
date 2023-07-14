@@ -2,10 +2,13 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header.js';
 
 const MainLayout = props => {
-    let homeClass = (useLocation().pathname === '/') ? ' home' : '';
-
+    const path = useLocation().pathname;
+    let pathClass = '';
+    
+    if (path === '/') pathClass = ' home';
+    else if (path.startsWith('/shop')) pathClass = ' shop'
     return (
-        <div className={'main-layout' + homeClass}>
+        <div className={'main-layout' + pathClass}>
             <Header total={props.total}/>
             <Outlet />
             <div className="footer">Footer</div>
