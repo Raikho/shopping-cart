@@ -94,9 +94,9 @@
   text-shadow: 4px 4px 4px #000a;
 }
 a.enter {
+  text-shadow: none;
   padding: 10px 20px;
   border-radius: 2px;
-  /* border: 1px solid white; */
   color: var(--visit-fg);
   background-color: var(--visit-bg);
 }
@@ -249,4 +249,17 @@ button.checkout, button.reset {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 4px;
 }
+.footer>.icon {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: lightgray;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
+.footer>.icon.git {
+  -webkit-mask-image: url('./assets/github.svg');
+  mask-image: url('./assets/github.svg');
+}
+.footer>.icon:hover {background-color: white;}
