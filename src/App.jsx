@@ -2,20 +2,22 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const arr = [1,2,3,4,5,6,7,8,9,10];
 
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+    <div className="App">
+      <div className="header">Header</div>
+      <div className="content">
+        {arr.map(item => (
+          <div 
+            key={item} 
+            className="card"
+          >{item}</div>
+        ))}
       </div>
-    </>
+      <div className="footer">Footer</div>
+    </div>
   )
 }
 
