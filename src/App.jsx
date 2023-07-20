@@ -3,7 +3,10 @@ import './App.css'
 
 function App() {
 
-  const arr = [1,2,3,4,5,6,7,8,9,10];
+  const arr = [];
+  for (let i = 0; i < 14; i++) {
+    arr.push(i);
+  }
 
   return (
     <div className="App">

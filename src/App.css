@@ -10,6 +10,7 @@ body {margin: 0; box-sizing: border-box;}
   text-align: center;
 }
 
+/* ================================================================= */
 /* ============================ CUSTOM ============================= */
 /* ================================================================= */
 :root {
@@ -22,7 +23,7 @@ body {margin: 0; box-sizing: border-box;}
 
   /* border: 1px dotted yellow; */
   display: grid;
-  grid-template-rows: 10% 1fr 5%;
+  grid-template-rows: 10% 85% 5%;
 }
 
 .header {
@@ -31,11 +32,12 @@ body {margin: 0; box-sizing: border-box;}
 
 .content {
   border: 1px dotted lightskyblue;
+  padding: 10px;
+  overflow-y: auto;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
   gap: 20px;
 }
 .card {
@@ -47,6 +49,18 @@ body {margin: 0; box-sizing: border-box;}
 .footer {
   border: 1px dotted lightgreen;
 }
+/* =========================== OBJECTS ============================= */
+/* ================================================================= */
+::-webkit-scrollbar {width: 15px;}
+::-webkit-scrollbar-track {background-color: transparent;}
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {background-color: #a8bbbf;}
+
 
 
 /* ============================ HEADER ============================= */
