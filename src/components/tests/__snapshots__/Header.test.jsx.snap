@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header component shows links > renders 1`] = `
+<div>
+  <div
+    class="header"
+  >
+    <div
+      class="store-title"
+    />
+    <div
+      class="nav-container"
+    >
+      <a
+        href=""
+      >
+        Home
+      </a>
+      <a
+        href=""
+      >
+        Shop
+      </a>
+      <a
+        href=""
+      >
+        Contact
+      </a>
+    </div>
+    <a
+      data-testid="cart-link"
+      href=""
+    >
+      Cart: ($
+      0
+      .00)
+    </a>
+  </div>
+</div>
+`;

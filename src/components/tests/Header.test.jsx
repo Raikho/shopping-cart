@@ -3,10 +3,14 @@ import { render, screen } from '@testing-library/react';
 // import userEvent from '@testing-library/user-event';
 import Header from '../Header';
 
-describe('renders links', () => {
-    it.skip('renders', () => {
+describe('Header component shows links', () => {
+    it('renders', () => {
         const { container } = render(<Header total={0}/>);
         expect(container).toMatchSnapshot();
+    });
+    it('renders store title', () => {
+        render(<Header title="Fish Supply" />);
+        expect(screen.getByText('Fish Supply')).toBeInTheDocument();
     });
     it('renders navlinks', () => {
         render(<Header total={0}/>);

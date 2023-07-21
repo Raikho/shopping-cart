@@ -1,8 +1,8 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.css';
 import Header from './Header'
 
-function App() {
+export default function App() {
 
   const arr = [];
   for (let i = 0; i < 14; i++)
@@ -23,7 +23,7 @@ function App() {
         null
       } */}
 
-      <Header total={20}/>
+      <Header title="Fish Supply" total={20}/>
       <div className="content">
         {arr.map(item => (
           <div 
@@ -36,5 +36,3 @@ function App() {
     </div>
   )
 }
-
-export default App
