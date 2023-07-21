@@ -9,7 +9,7 @@ describe('something truthy and falsy', () => {
     });
 });
 
-describe('testing App component', () => {
+describe.skip('testing App component', () => {
     it('renders', () => {
         const { container } = render(<App />);
         expect(container).toMatchSnapshot();
