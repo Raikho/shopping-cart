@@ -46,6 +46,7 @@ body {margin: 0; box-sizing: border-box;}
   border: 1px dotted orange;
 }
 
+/* DEBUG */
 .content {
   border: 1px dotted lightskyblue;
   padding: 10px;
@@ -112,6 +113,22 @@ a.active {color: var(--link-active); font-weight: bold;}
 
 /* ============================ ITEMS ============================== */
 /* ================================================================= */
+.item-list {
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+  overflow-y: auto;
+}
+.item {
+  margin: 5px;
+  background-color: darkcyan;
+  width: 300px;
+  height: 300px;
+}
 
 /* =========================== BUTTONS ============================= */
 
