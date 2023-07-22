@@ -1,16 +1,25 @@
 export default function Item({ item, onChangeAmount }) {
-    const { name, id } = item;
+    const { name, price, id, img, quantity } = item;
 
-    const handleAdd = () => {onChangeAmount(id, 1)};
-    const handleSubtract = () => {onChangeAmount(id, -1)};
+    let imgUrl = new URL(`../assets/${img}.jpg`, import.meta.url);
+    const onAdd = () => {onChangeAmount(id, 1)};
+    const onSubtract = () => {onChangeAmount(id, -1)};
 
     return (
         <div className="item">
+            <img src={imgUrl} alt={img} />
             <div className="desc">
                 <div className="name">{name}</div>
+                <div className="price">{`$${price}.00`}</div>
             </div>
-            <button onClick={handleAdd}>+</button>
-            <button onClick={handleSubtract}>-</button>
+            {quantity > 0 ?
+                    <div className='quantity-container'>
+                        <button className='adjust' onClick={onSubtract}>-</button>
+                        {quantity}
+                        <button className='adjust' onClick={onAdd}>+</button>
+                    </div> :
+                    <button className='add' onClick={onAdd}>Add</button>
+                }
         </div>
     );
 }
