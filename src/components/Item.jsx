@@ -11,8 +11,7 @@ export default function Item({ item, onChangeAmount }) {
             <div className="desc">
                 <div className="name">{name}</div>
                 <div className="price">{`$${price}.00`}</div>
-            </div>
-            {quantity > 0 ?
+                {quantity > 0 ?
                     <div className='quantity-container'>
                         <button className='adjust' onClick={onSubtract}>-</button>
                         {quantity}
@@ -20,6 +19,7 @@ export default function Item({ item, onChangeAmount }) {
                     </div> :
                     <button className='add' onClick={onAdd}>Add</button>
                 }
+            </div>
         </div>
     );
 }

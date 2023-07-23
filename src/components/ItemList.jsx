@@ -1,4 +1,4 @@
-import Item from './Item'
+import Item from './Item.jsx'
 
 export default function ItemList({ items, onChangeAmount }) {
     return (
