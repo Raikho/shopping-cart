@@ -1,31 +1,20 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+// import userEvent from '@testing-library/user-event';
 import App from '../App';
 
-describe('something truthy and falsy', () => {
-    it('shows true to be true', () => {
-        expect(true).toBe(true);
-    });
-});
+// vi.mock('../Header.jsx', () => ({default: vi.fn()}))
+// vi.mock('../ItemList.jsx', () => ({
+//     default: ({ items, onChangeAmount }) => 
+//     <>
+//         <button onClick={() => onChangeAmount(items[0].id, 1)}>add</button>
+//         <button onClick={() => onChangeAmount(items[0].id, -1)}>subtract</button>
+//     </>
+// }));
 
-describe.skip('testing App component', () => {
-    it('renders', () => {
+describe.skip('App component', () => {
+    it.skip('renders', () => {
         const { container } = render(<App />);
         expect(container).toMatchSnapshot();
-    });
-    it('renders correct heading', () => {
-        render(<App />);
-        expect(screen.getByRole("heading").textContent)
-            .toMatch(/test heading/i);
-    });
-    it('changes heading upon click', async() => {
-        const user = userEvent.setup();
-
-        render(<App />);
-        const button = screen.getByRole("button", { name: "Click Me" });
-        await user.click(button);
-        expect(screen.getByRole("heading").textContent)
-            .toMatch(/radical rhinos/i);
     });
 });

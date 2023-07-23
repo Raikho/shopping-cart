@@ -1,10 +1,10 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import uniqid from 'uniqid';
 import './App.css';
 import Header from './Header'
 import ItemList from './ItemList'
 
-const baseItems = [
+const startingItems = [
   {name: 'Betta', cat: 'fresh', price: 9, id: uniqid(), img: 'betta', quantity: 0},
   {name: 'Oscar', cat: 'fresh', price: 3, id: uniqid(), img: 'oscar', quantity: 0},
   {name: 'Discus', cat: 'fresh', price: 5, id: uniqid(), img: 'discus', quantity: 0},
@@ -15,31 +15,16 @@ const baseItems = [
   {name: 'Decoration', cat: 'supplies', price: 10, id: uniqid(), img: 'decoration', quantity: 0},
 ];
 
-export default function App() {
-
-  const arr = [];
-  for (let i = 0; i < 14; i++)
-    arr.push({name: `#${i}`, id: i});
-
-  // let isTesting = true;
-  // const [testHeading, setTestHeading] = useState('Test Heading');
-  // const clickHandler = () => {setTestHeading('Radical Rhinos');};
+export default function App({ baseItems = startingItems }) {
+  const [items, setItems] = useState(baseItems);
+  const [total, setTotal] = useState(0);
 
   const handleChangeAmount = () => {};
 
   return (
     <div className="App">
-      
-      {/* {(isTesting) ? 
-        <div className="testing">
-          <h1>{testHeading}</h1>
-          <button type="button" onClick={clickHandler}>Click Me</button>
-        </div> :
-        null
-      } */}
-
       <Header title="Fish Supply" total={20}/>
-      <ItemList items={baseItems} onChangeAmount={handleChangeAmount}/>
+      <ItemList items={items} onChangeAmount={handleChangeAmount}/>
       <div className="footer">Footer</div>
     </div>
   )

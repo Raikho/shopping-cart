@@ -14,6 +14,12 @@ const mockFn = vi.fn();
 const mockItems = [{name: 'Betta', id: 1}, {name: 'Oscar', id: 2}];
 
 describe('ItemList component', () => {
+    it('renders', () => {
+        const { container } = render(<ItemList 
+            items={mockItems} onChangeAmount={mockFn} />);
+        expect(container).toMatchSnapshot();
+    });
+
     it('renders each item', () => {
         render(<ItemList items={mockItems} onChangeAmount={mockFn} />);
         expect(screen.queryByText('Betta')).toBeInTheDocument();

@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ItemList component > renders 1`] = `
+<div>
+  <div
+    class="item-list"
+  >
+    <div>
+      Betta
+    </div>
+    <button>
+      addBetta
+    </button>
+    <div>
+      Oscar
+    </div>
+    <button>
+      addOscar
+    </button>
+  </div>
+</div>
+`;
