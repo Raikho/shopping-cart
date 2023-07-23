@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import uniqid from 'uniqid';
 import './App.css';
 import Header from './Header'
@@ -19,7 +19,19 @@ export default function App({ baseItems = startingItems }) {
   const [items, setItems] = useState(baseItems);
   const [total, setTotal] = useState(0);
 
-  const handleChangeAmount = () => {};
+  const handleChangeAmount = (id, change) => {
+    setItems(prevItems => {
+      let newItems = JSON.parse(JSON.stringify(prevItems));
+      let item = newItems.filter(item => item.id === id)[0];
+      item.quantity += change;
+      return newItems;
+    });
+  };
+
+  useEffect(() => {
+    let newTotal = items.reduce((prev, cur) => prev + (cur.price * cur.quantity), 0);
+    setTotal(newTotal);
+  }, [items]);
 
   return (
     <div className="App">
