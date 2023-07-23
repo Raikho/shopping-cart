@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import uniqid from 'uniqid';
 import './App.css';
 import Header from './Header'
@@ -33,10 +36,18 @@ export default function App({ baseItems = startingItems }) {
     setTotal(newTotal);
   }, [items]);
 
+  const router = createBrowserRouter([
+    {path: "/", element: <ItemList items={items} onChangeAmount={handleChangeAmount}/>},
+    {path: "/profile", element: <div>TEST PROFILE</div>},
+  ]);
+
   return (
     <div className="App">
       <Header title="Fish Supply" total={20}/>
-      <ItemList items={items} onChangeAmount={handleChangeAmount}/>
+
+      <RouterProvider router={router} />
+      {/* <ItemList items={items} onChangeAmount={handleChangeAmount}/> */}
+
       <div className="footer">Footer</div>
     </div>
   )
