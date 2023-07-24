@@ -4,8 +4,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import uniqid from 'uniqid';
 import './App.css';
-import Header from './Header'
-import ItemList from './ItemList'
+import Header from './Header' // TODO: remove
+import ItemList from './ItemList' // TODO: remove
+import MainLayout from './MainLayout';
+import Homepage from './Homepage';
+import ShopLayout from  './ShopLayout';
 
 const startingItems = [
   {name: 'Betta', cat: 'fresh', price: 9, id: uniqid(), img: 'betta', quantity: 0},
@@ -36,19 +39,27 @@ export default function App({ baseItems = startingItems }) {
     setTotal(newTotal);
   }, [items]);
 
+
   const router = createBrowserRouter([
-    {path: "/", element: <ItemList items={items} onChangeAmount={handleChangeAmount}/>},
-    {path: "/profile", element: <div>TEST PROFILE</div>},
+    {
+      path: "/", 
+      element: <MainLayout />,
+      children: [
+        {index: true, element: <Homepage />},
+        {path: "shop", element: <ShopLayout />},
+        {path: "contact", element: <div>CONTACT</div>}
+      ],
+    }
   ]);
 
   return (
     <div className="App">
-      <Header title="Fish Supply" total={20}/>
+      {/* <Header title="Fish Supply" total={20}/> */}
 
       <RouterProvider router={router} />
       {/* <ItemList items={items} onChangeAmount={handleChangeAmount}/> */}
 
-      <div className="footer">Footer</div>
+      {/* <div className="footer">Footer</div> */}
     </div>
   )
 }
