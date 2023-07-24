@@ -199,9 +199,11 @@ button:active {filter: brightness(0.9);}
 /* ============================= CART ============================== */
 /* ================================================================= */
 .cart-layout {
+  overflow-y: auto;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: start;
   gap: 20px;
 }
 .cart-buttons {
