@@ -221,6 +221,23 @@ button:active {filter: brightness(0.9);}
 
 /* ============================= CART ============================== */
 /* ================================================================= */
+.cart-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+}
+.cart-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+button.checkout, button.reset {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px 30px;
+}
 
 /* ============================ FOOTER ============================= */
 /* ================================================================= */
