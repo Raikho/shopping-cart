@@ -9,9 +9,9 @@ export default function Header({ title, total }) {
                 <NavLink to="shop/all">Shop</NavLink>
                 <NavLink to="contact">Contact</NavLink>
             </nav>
-            <a href="" data-testid='cart-link'>
+            <NavLink to="shop/cart" data-testid='cart-link'>
                 Cart: (${total}.00)
-            </a>
+            </NavLink>
         </div>
     );
 }
