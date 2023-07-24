@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Item({ item, onChangeAmount }) {
     const { name, price, id, img, quantity } = item;
 
