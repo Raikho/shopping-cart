@@ -5,7 +5,7 @@ export default function Homepage() {
         <div className="homepage">
             <div className="caption">
                 <div className="caption-text">For all your aquatic needs</div>
-                <NavLink to='shop' className="enter">Visit Shop</NavLink>
+                <NavLink to='shop/all' className="enter">Visit Shop</NavLink>
             </div>
         </div>
     );
