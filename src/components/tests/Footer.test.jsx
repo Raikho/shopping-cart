@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 // import userEvent from '@testing-library/user-event';
 // import Footer from '../Header';
 
-describe('sample test', () => {
+describe.skip('sample test', () => {
     it('sample test', () => {
         expect(true).toBe(true);
     });

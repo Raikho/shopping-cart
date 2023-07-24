@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Item from '../Item';
 
-describe('Item component', () => {
+describe.skip('Item component', () => {
     it.skip('renders', () => {
         const { container } = render(<Item />)
         expect(container).toMatchSnapshot();

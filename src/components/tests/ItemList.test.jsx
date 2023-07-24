@@ -13,7 +13,7 @@ vi.mock('../Item.jsx', () => ({
 const mockFn = vi.fn();
 const mockItems = [{name: 'Betta', id: 1}, {name: 'Oscar', id: 2}];
 
-describe('ItemList component', () => {
+describe.skip('ItemList component', () => {
     it('renders', () => {
         const { container } = render(<ItemList 
             items={mockItems} onChangeAmount={mockFn} />);

@@ -36,30 +36,8 @@ body {margin: 0; box-sizing: border-box;}
 .App {
   height: 100%;
   width: 100%;
-
-  /* border: 1px dotted yellow; */
 }
 
-/* DEBUG */
-.content {
-  border: 1px dotted lightskyblue;
-  padding: 10px;
-  overflow-y: auto;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  gap: 20px;
-}
-.card {
-  background-color: lightcoral;
-  height: 200px;
-  width: 200px;
-}
-
-.footer {
-  border: 1px dotted lightgreen;
-}
 /* =========================== OBJECTS ============================= */
 /* ================================================================= */
 ::-webkit-scrollbar {width: 15px;}
@@ -75,7 +53,6 @@ body {margin: 0; box-sizing: border-box;}
 /* ============================ HEADER ============================= */
 /* ================================================================= */
 .header {
-  border: 1px dotted orange;
   background-color: var(--header-bg);
 
   display: flex;
@@ -248,3 +225,15 @@ button.checkout, button.reset {
   align-items: center;
   padding: 4px;
 }
+.footer>.icon {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: lightgray;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
+.footer>.icon.git {
+  -webkit-mask-image: url('../assets/github.svg');
+  mask-image: url('../assets/github.svg');
+}
+.footer>.icon:hover {background-color: white;}

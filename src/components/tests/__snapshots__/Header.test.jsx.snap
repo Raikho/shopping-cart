@@ -8,28 +8,33 @@ exports[`Header component shows links > renders 1`] = `
     <div
       class="store-title"
     />
-    <div
+    <nav
       class="nav-container"
     >
       <a
-        href=""
+        aria-current="page"
+        class="active"
+        href="/"
       >
         Home
       </a>
       <a
-        href=""
+        class=""
+        href="/shop/all"
       >
         Shop
       </a>
       <a
-        href=""
+        class=""
+        href="/contact"
       >
         Contact
       </a>
-    </div>
+    </nav>
     <a
+      class=""
       data-testid="cart-link"
-      href=""
+      href="/shop/cart"
     >
       Cart: ($
       0
