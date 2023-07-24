@@ -38,12 +38,6 @@ body {margin: 0; box-sizing: border-box;}
   width: 100%;
 
   /* border: 1px dotted yellow; */
-  display: grid;
-  grid-template-rows: 10% 85% 5%;
-}
-
-.header {
-  border: 1px dotted orange;
 }
 
 /* DEBUG */
@@ -81,6 +75,7 @@ body {margin: 0; box-sizing: border-box;}
 /* ============================ HEADER ============================= */
 /* ================================================================= */
 .header {
+  border: 1px dotted orange;
   background-color: var(--header-bg);
 
   display: flex;
@@ -108,6 +103,23 @@ a.active {color: var(--link-active); font-weight: bold;}
 
 /* ========================= MAIN LAYOUTS ========================== */
 /* ================================================================= */
+.main-layout {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 10% 85% 5%;
+}
+
+/* ========================= SHOP LAYOUT =========================== */
+/* ================================================================= */
+.shop-layout {
+  overflow-y: auto;
+}
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 
 /* ============================ ITEMS ============================== */
 /* ================================================================= */
@@ -119,7 +131,6 @@ a.active {color: var(--link-active); font-weight: bold;}
   justify-items: center;
   align-items: center;
   gap: 20px;
-  overflow-y: auto;
 }
 .item {
   width: 300px;

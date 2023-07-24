@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
+// import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import uniqid from 'uniqid';
 import './App.css';
-import Header from './Header' // TODO: remove
+// import Header from './Header' // TODO: remove
 import ItemList from './ItemList' // TODO: remove
 import MainLayout from './MainLayout';
 import Homepage from './Homepage';
@@ -25,6 +25,11 @@ export default function App({ baseItems = startingItems }) {
   const [items, setItems] = useState(baseItems);
   const [total, setTotal] = useState(0);
 
+  useEffect(() => {
+    let newTotal = items.reduce((prev, cur) => prev + (cur.price * cur.quantity), 0);
+    setTotal(newTotal);
+  }, [items]);
+
   const handleChangeAmount = (id, change) => {
     setItems(prevItems => {
       let newItems = JSON.parse(JSON.stringify(prevItems));
@@ -34,20 +39,27 @@ export default function App({ baseItems = startingItems }) {
     });
   };
 
-  useEffect(() => {
-    let newTotal = items.reduce((prev, cur) => prev + (cur.price * cur.quantity), 0);
-    setTotal(newTotal);
-  }, [items]);
-
+  const getItems = cat => {
+    if (cat === 'all') return items;
+    if (cat === 'cart') return items.filter(item => item.quantity > 0);
+    return items.filter(item => item.cat === cat);
+  };
 
   const router = createBrowserRouter([
     {
       path: "/", 
-      element: <MainLayout />,
+      element: <MainLayout total={total}/>,
       children: [
         {index: true, element: <Homepage />},
-        {path: "shop", element: <ShopLayout />},
-        {path: "contact", element: <div>CONTACT</div>}
+        {path: "contact", element: <div>CONTACT</div>},
+        {
+          path: "shop", 
+          element: <ShopLayout />,
+          children: [
+            {index: true, element: <ItemList getItems={getItems} onChangeAmount={handleChangeAmount} />},
+            {path: ":cat", element: <ItemList getItems={getItems} onChangeAmount={handleChangeAmount} />},
+          ],
+        },
       ],
     }
   ]);
