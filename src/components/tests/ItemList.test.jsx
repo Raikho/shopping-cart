@@ -12,22 +12,23 @@ vi.mock('../Item.jsx', () => ({
 }));
 const mockFn = vi.fn();
 const mockItems = [{name: 'Betta', id: 1}, {name: 'Oscar', id: 2}];
+const mockGetItems = () => mockItems;
 
-describe.skip('ItemList component', () => {
+describe('ItemList component', () => {
     it('renders', () => {
         const { container } = render(<ItemList 
-            items={mockItems} onChangeAmount={mockFn} />);
+                getItems={mockGetItems} onChangeAmount={mockFn} />);
         expect(container).toMatchSnapshot();
     });
 
     it('renders each item', () => {
-        render(<ItemList items={mockItems} onChangeAmount={mockFn} />);
+        render(<ItemList getItems={mockGetItems} onChangeAmount={mockFn} />);
         expect(screen.queryByText('Betta')).toBeInTheDocument();
         expect(screen.queryByText('Oscar')).toBeInTheDocument();
     });
 
     it('passes along amount function', async() => {
-        render(<ItemList items={mockItems} onChangeAmount={mockFn} />);
+        render(<ItemList getItems={mockGetItems} onChangeAmount={mockFn} />);
         const user = userEvent.setup();
         const button = screen.getByRole('button', {name: 'addBetta'});
         await user.click(button);
