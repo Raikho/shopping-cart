@@ -112,13 +112,18 @@ a.active {color: var(--link-active); font-weight: bold;}
 
 /* ========================= SHOP LAYOUT =========================== */
 /* ================================================================= */
-.shop-layout {
-  overflow-y: auto;
-}
+.shop-layout {overflow-y: auto;}
 .categories {
+  height: 100px;
+  font-size: 32px;
+
   display: flex;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  gap: 20px;
+}
+@media screen and (max-width: 600px) {
+  .categories {flex-direction: column;}
 }
 
 /* ============================ ITEMS ============================== */
