@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext, createContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 
@@ -20,6 +20,8 @@ const startingItems = [
   {name: 'Fish Bowl', cat: 'supplies', price: 18, id: uuid(), img: 'fish-bowl', quantity: 0},
   {name: 'Decoration', cat: 'supplies', price: 10, id: uuid(), img: 'decoration', quantity: 0},
 ];
+
+export const ItemsContext = createContext(null);
 
 export default function App({ baseItems = startingItems }) {
   const [items, setItems] = useState(baseItems);
@@ -54,6 +56,13 @@ export default function App({ baseItems = startingItems }) {
     return items.filter(item => item.cat === cat);
   };
 
+  const getNumCart = () => {
+    return items.reduce((total, item) => total + item.quantity, 0);
+  };
+  const getTotalCart = () => {
+    return items.reduce((total, item) => total + item.quantity * item.price, 0);
+  };
+
   const router = createBrowserRouter([
     {
       path: "/", 
@@ -85,12 +94,9 @@ export default function App({ baseItems = startingItems }) {
 
   return (
     <div className="App">
-      {/* <Header title="Fish Supply" total={20}/> */}
-
-      <RouterProvider router={router} />
-      {/* <ItemList items={items} onChangeAmount={handleChangeAmount}/> */}
-
-      {/* <div className="footer">Footer</div> */}
+      <ItemsContext.Provider value={{ getNumCart, getTotalCart }}>
+        <RouterProvider router={router} />
+      </ItemsContext.Provider>
     </div>
   )
 }
