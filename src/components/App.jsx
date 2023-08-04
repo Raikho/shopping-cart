@@ -25,7 +25,7 @@ export const ItemsContext = createContext(null);
 
 export default function App({ baseItems = startingItems }) {
   const [items, setItems] = useState(baseItems);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(0); // TODO: remove this state
 
   useEffect(() => {
     let newTotal = items.reduce((prev, cur) => prev + (cur.price * cur.quantity), 0);
@@ -75,8 +75,8 @@ export default function App({ baseItems = startingItems }) {
           element: <CartLayout total={total} onReset={handleReset}/>,
           children: [
             {
-              index: true, 
-              element: <ItemList getItems={() => getItems('cart')} onChangeAmount={handleChangeAmount} />,
+              index: true,
+              element: <ItemList isCart="true" getItems={() => getItems('cart')} onChangeAmount={handleChangeAmount} />,
             },
           ]
         },
@@ -94,7 +94,7 @@ export default function App({ baseItems = startingItems }) {
 
   return (
     <div className="App">
-      <ItemsContext.Provider value={{ getNumCart, getTotalCart }}>
+      <ItemsContext.Provider value={{ items, getNumCart, getTotalCart }}>
         <RouterProvider router={router} />
       </ItemsContext.Provider>
     </div>
